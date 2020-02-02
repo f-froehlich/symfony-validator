@@ -31,7 +31,6 @@
     "symfony/translation": "^4|^5"
   },
   "require-dev": {
-    "roave/security-advisories": "*",
     "ext-xdebug": "*",
     "symfony/phpunit-bridge": "^5",
     "phpunit/phpunit": "^8"

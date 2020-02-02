@@ -45,31 +45,31 @@ use function is_string;
  */
 abstract class AbstractConstraintValidator {
 
-    const ALL = 'ALL';
+    public const ALL = 'ALL';
 
-    const NUMBER_OR_STRING = 'NUMBER_OR_STRING';
+    public const NUMBER_OR_STRING = 'NUMBER_OR_STRING';
 
-    const STRING = 'string';
+    public const STRING = 'string';
 
-    const INT = 'integer';
+    public const INT = 'integer';
 
-    const NUMBER = 'NUMBER';
+    public const NUMBER = 'NUMBER';
 
-    const FLOAT = 'double';
+    public const FLOAT = 'double';
 
-    const BOOLEAN = 'boolean';
+    public const BOOLEAN = 'boolean';
 
-    const NULL  = 'NULL';
+    public const NULL = 'NULL';
 
-    const ARRAY = 'array';
+    public const ARRAY = 'array';
 
-    const LIST  = 'LIST';
+    public const LIST = 'LIST';
 
-    const STD_CLASS = 'stdClass';
+    public const STD_CLASS = 'stdClass';
 
-    const RESOURCE = 'resource';
+    public const RESOURCE = 'resource';
 
-    const OPTIONAL = 'OPTIONAL';
+    public const OPTIONAL = 'OPTIONAL';
 
     /**
      * @var ConstraintViolationBuilderInterface
