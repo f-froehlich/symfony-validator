@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<!--
+  ~ Symfony Validator
+  ~
+  ~ Type sensitive validating Software for Symfony Applications.
+  ~
+  ~ Copyright (c) 2020 Fabian Fröhlich <mail@f-froehlich.de> https://f-froehlich.de
+  ~
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  ~ For all license terms see README.md and LICENSE Files in root directory of this Project.
+  ~
+  -->
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+
+    <services>
+
+        <defaults public="true">
+        </defaults>
+
+        <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="translator.formatter"/>
+            <argument>%kernel.default_locale%</argument>
+            <argument type="collection"/> <!-- translation loaders ids -->
+            <argument type="collection">
+                <argument key="cache_dir">%kernel.cache_dir%/translations</argument>
+                <argument key="debug">%kernel.debug%</argument>
+            </argument>
+            <call method="setConfigCacheFactory">
+                <argument type="service" id="config_cache_factory"/>
+            </call>
+            <tag name="kernel.locale_aware"/>
+        </service>
+
+
+        <service id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="translator.default"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Violation\MetadataConstraintViolationBuilder">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="annotations.reader"/>
+            <argument type="service" id="translator.default"/>
+        </service>
+
+
+    </services>
+</container>

@@ -1,0 +1,166 @@
+<?xml version="1.0" ?>
+
+<!--
+  ~ Symfony Validator
+  ~
+  ~ Type sensitive validating Software for Symfony Applications.
+  ~
+  ~ Copyright (c) 2020 Fabian Fröhlich <mail@f-froehlich.de> https://f-froehlich.de
+  ~
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  ~
+  ~ For all license terms see README.md and LICENSE Files in root directory of this Project.
+  ~
+  -->
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <defaults public="true">
+        </defaults>
+
+
+        <service id="FabianFroehlich\Validator\Validator\AllValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsLowerThanValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsLowerThanOrEqualValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsNotEqualToValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsEqualToValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsFloatValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsDividableByValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsGreaterThanValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsGreaterThanOrEqualValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\CountValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\CollectionValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsBetweenValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsFalseValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsBoolValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsEmailValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\ChoiceValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\ExpressionValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsOptionalValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsNullValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+        <service id="FabianFroehlich\Validator\Validator\IsNumberValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsTrueValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsNotNullValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsZeroValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsIntValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsISBNValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsISBN10Validator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsISBN13Validator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsIdValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\NotCompromisedPasswordValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsPasswordValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsStringValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+        <service id="FabianFroehlich\Validator\Validator\IsUUIDValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
+    </services>
+</container>
