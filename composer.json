@@ -1,0 +1,55 @@
+{
+  "name": "f-froehlich/symfony-validator",
+  "type": "symfony-bundle",
+  "description": "Type sensitive validating Software for Symfony Applications.",
+  "keywords": [],
+  "homepage": "https://f-froehlich.de",
+  "license": "AGPL-3.0-only",
+  "authors": [
+    {
+      "name": "Fabian Fröhlich",
+      "email": "mail@f-froehlich.de"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://nexus.f-froehlich.de/repository/composer/"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "ext-curl": "*",
+    "ext-xml": "*",
+    "ext-simplexml": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-gd": "*",
+    "doctrine/annotations": "^1",
+    "f-froehlich/core-util": "^1",
+    "symfony/framework-bundle": "^4|^5",
+    "symfony/translation": "^4|^5"
+  },
+  "require-dev": {
+    "roave/security-advisories": "*",
+    "ext-xdebug": "*",
+    "symfony/phpunit-bridge": "^5",
+    "phpunit/phpunit": "^8"
+  },
+  "conflict": {
+    "symfony/validator": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FabianFroehlich\\Validator\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "FabianFroehlich\\Validator\\Tests\\": "Tests/"
+    }
+  }
+}
