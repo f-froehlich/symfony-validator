@@ -48,7 +48,7 @@ class IsEmailValidatorTest
     public function willNotSucceedIfMailIsInvalid(): void {
 
         $invalidMails = file(
-            __DIR__ . '/../../../vendor/f-froehlich/core-util/Tests/Fixtures/invalidEmail.txt',
+            __DIR__ . '/../../../vendor/f-froehlich/utils/Tests/Fixtures/invalidEmail.txt',
             FILE_IGNORE_NEW_LINES
         );
 
@@ -75,7 +75,7 @@ class IsEmailValidatorTest
     public function willSucceedIfValuesEquals(): void {
 
         $validEmails = file(
-            __DIR__ . '/../../../vendor/f-froehlich/core-util/Tests/Fixtures/validEmail.txt',
+            __DIR__ . '/../../../vendor/f-froehlich/utils/Tests/Fixtures/validEmail.txt',
             FILE_IGNORE_NEW_LINES
         );
 

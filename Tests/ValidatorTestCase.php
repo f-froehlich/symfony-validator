@@ -346,6 +346,7 @@ abstract class ValidatorTestCase
         /** @var ConstraintViolation $violation */
         foreach ($violations as $violation) {
             if (ErrorCodes::INVALID_VALUE_TYPE()->value() === $violation->getCode()) {
+                var_dump($violation);
                 $this->fail(
                     'Invalid Value Constraint where added but only valid constraints where checked. '
                     . $violation->__toString()

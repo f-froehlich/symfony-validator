@@ -162,5 +162,9 @@
             <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
         </service>
 
+        <service id="FabianFroehlich\Validator\Validator\LogicalAndValidator">
+            <argument type="service" id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder"/>
+        </service>
+
     </services>
 </container>

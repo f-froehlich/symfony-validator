@@ -48,7 +48,7 @@ class IsPasswordValidatorTest
     public function validPasswordWillAccepted(): void {
 
         $validPasswords = file(
-            __DIR__ . '/../../../vendor/f-froehlich/core-util/Tests/Fixtures/validPasswords.txt',
+            __DIR__ . '/../../../vendor/f-froehlich/utils/Tests/Fixtures/validPasswords.txt',
             FILE_IGNORE_NEW_LINES
         );
 
@@ -65,7 +65,7 @@ class IsPasswordValidatorTest
     public function invalidPasswordWillNotAccepted(): void {
 
         $invalidPasswords = file(
-            __DIR__ . '/../../../vendor/f-froehlich/core-util/Tests/Fixtures/invalidPasswords.txt',
+            __DIR__ . '/../../../vendor/f-froehlich/utils/Tests/Fixtures/invalidPasswords.txt',
             FILE_IGNORE_NEW_LINES
         );
 

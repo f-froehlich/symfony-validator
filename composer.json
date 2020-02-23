@@ -26,7 +26,7 @@
     "ext-json": "*",
     "ext-gd": "*",
     "doctrine/annotations": "^1",
-    "f-froehlich/core-util": "^1",
+    "f-froehlich/utils": "^1",
     "symfony/framework-bundle": "^4|^5",
     "symfony/translation": "^4|^5"
   },
