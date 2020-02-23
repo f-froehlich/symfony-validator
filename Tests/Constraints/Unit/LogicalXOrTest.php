@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Symfony Validator
  *
@@ -25,37 +24,55 @@
  *
  */
 
-namespace FabianFroehlich\Validator\Constraints;
+namespace FabianFroehlich\Validator\Tests\Constraints\Unit;
 
 
-use FabianFroehlich\Validator\Validator\LogicalOrValidator;
+use FabianFroehlich\Validator\Constraints\IsBool;
+use FabianFroehlich\Validator\Constraints\LogicalXOr;
+use FabianFroehlich\Validator\Tests\AbstractLogicalConstraintTestCase;
+use FabianFroehlich\Validator\Validator\LogicalXOrValidator;
 
 /**
- * Class LogicalOr
- *
- * @Annotation
- * @Target({"PROPERTY", "ANNOTATION"})
+ * Class LogicalXOrTest
  *
  * @author  Fabian Fröhlich <mail@f-froehlich.de>
- * @package FabianFroehlich\Validator\Constraints
+ * @package FabianFroehlich\Validator\Tests\Constraints\Unit
  */
-class LogicalOr
-    extends AbstractLogicalConstraint {
+class LogicalXOrTest
+    extends AbstractLogicalConstraintTestCase {
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRequiredValidatorClass(): string {
+
+        return LogicalXOrValidator::class;
+    }
 
 
     /**
      * {@inheritDoc}
      */
-    public function validatedBy(): string {
+    protected function initConstraint(): void {
 
-        return LogicalOrValidator::class;
+        $constraintClass  = $this->getConstraintClass();
+        $this->constraint = new $constraintClass(['left' => new IsBool(), 'right' => new IsBool()]);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getConstraintClass(): string {
+
+        return LogicalXOr::class;
     }
 
     /**
      * @inheritDoc
      */
-    public function getTranslationDomain(): string {
-        return 'LogicalOr';
+    protected function getTranslationDomain(): string {
+        return 'LogicalXOr';
     }
+
 
 }

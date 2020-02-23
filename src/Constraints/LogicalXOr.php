@@ -28,10 +28,10 @@
 namespace FabianFroehlich\Validator\Constraints;
 
 
-use FabianFroehlich\Validator\Validator\LogicalOrValidator;
+use FabianFroehlich\Validator\Validator\LogicalXOrValidator;
 
 /**
- * Class LogicalOr
+ * Class LogicalXOr
  *
  * @Annotation
  * @Target({"PROPERTY", "ANNOTATION"})
@@ -39,7 +39,7 @@ use FabianFroehlich\Validator\Validator\LogicalOrValidator;
  * @author  Fabian Fröhlich <mail@f-froehlich.de>
  * @package FabianFroehlich\Validator\Constraints
  */
-class LogicalOr
+class LogicalXOr
     extends AbstractLogicalConstraint {
 
 
@@ -48,14 +48,14 @@ class LogicalOr
      */
     public function validatedBy(): string {
 
-        return LogicalOrValidator::class;
+        return LogicalXOrValidator::class;
     }
 
     /**
      * @inheritDoc
      */
     public function getTranslationDomain(): string {
-        return 'LogicalOr';
+        return 'LogicalXOr';
     }
 
 }

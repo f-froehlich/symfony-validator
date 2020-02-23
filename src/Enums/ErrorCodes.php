@@ -71,9 +71,13 @@ use FabianFroehlich\Core\Util\Enum\AbstractEnum;
  * @method static ErrorCodes UUID_GROUP_COUNT_INVALID()
  * @method static ErrorCodes UUID_INVALID_HYPHEN_POS()
  * @method static ErrorCodes UUID_INVALID_LENGTH()
+ * @method static ErrorCodes LOGICAL_XOR_INVALID()
  */
 class ErrorCodes
     extends AbstractEnum {
+
+    /** @const string */
+    private const LOGICAL_XOR_INVALID = 'LOGICAL_XOR_INVALID';
 
     /** @const string */
     private const UUID_INVALID_VERSION = 'UUID_INVALID_VERSION';

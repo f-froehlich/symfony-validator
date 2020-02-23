@@ -76,6 +76,7 @@ class ErrorCodesTest
             'UUID_GROUP_COUNT_INVALID',
             'UUID_INVALID_HYPHEN_POS',
             'UUID_INVALID_LENGTH',
+            'LOGICAL_XOR_INVALID',
         ];
     }
 

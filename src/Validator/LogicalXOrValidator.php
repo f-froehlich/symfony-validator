@@ -28,15 +28,16 @@
 namespace FabianFroehlich\Validator\Validator;
 
 use FabianFroehlich\Validator\Constraints\AbstractConstraint;
-use FabianFroehlich\Validator\Constraints\LogicalOr;
+use FabianFroehlich\Validator\Constraints\LogicalXOr;
+use FabianFroehlich\Validator\Enums\ErrorCodes;
 
 /**
- * Class LogicalOrValidator
+ * Class LogicalXOrValidator
  *
  * @author  Fabian Fröhlich <mail@f-froehlich.de>
  * @package FabianFroehlich\Validator\Validator
  */
-class LogicalOrValidator
+class LogicalXOrValidator
     extends AbstractConstraintValidator {
 
     /**
@@ -52,12 +53,12 @@ class LogicalOrValidator
      */
     public function getRequiredConstraint(): string {
 
-        return LogicalOr::class;
+        return LogicalXOr::class;
     }
 
     /**
      * @param            $value
-     * @param LogicalOr  $constraint
+     * @param LogicalXOr $constraint
      *
      * @return bool
      */
@@ -66,17 +67,39 @@ class LogicalOrValidator
         $currentViolations = $this->violationBuilder->getViolations();
         $this->violationBuilder->reset();
 
-        if (!$this->violationBuilder->validateValue($value, $constraint->getLeft())) {
-            $this->violationBuilder->reset();
+        if ($this->violationBuilder->validateValue($value, $constraint->getLeft())) {
 
-            if (!$this->violationBuilder->validateValue($value, $constraint->getRight())) {
+            if ($this->violationBuilder->validateValue($value, $constraint->getRight())) {
                 $this->violationBuilder->getViolationList()->addAll($currentViolations);
+                $this->violationBuilder->addViolation(
+                    $value,
+                    ErrorCodes::LOGICAL_XOR_INVALID()->value(),
+                    [],
+                    $constraint
+                );
+
                 return false;
             }
-        }
-        $this->violationBuilder->getViolationList()->addAll($currentViolations);
 
-        return true;
+            $this->violationBuilder->reset();
+            $this->violationBuilder->getViolationList()->addAll($currentViolations);
+            return true;
+        }
+
+        $newViolations = $this->violationBuilder->getViolations();
+        $this->violationBuilder->reset();
+
+        if ($this->violationBuilder->validateValue($value, $constraint->getRight())) {
+            $this->violationBuilder->getViolationList()->addAll($currentViolations);
+
+            return true;
+        }
+
+        $this->violationBuilder->getViolationList()->addAll($currentViolations);
+        $this->violationBuilder->getViolationList()->addAll($newViolations);
+        $this->violationBuilder->addViolation($value, ErrorCodes::LOGICAL_XOR_INVALID()->value(), [], $constraint);
+
+        return false;
     }
 
 }
