@@ -35,31 +35,16 @@
         <defaults public="true">
         </defaults>
 
-        <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator">
-            <argument type="service" id="service_container"/>
-            <argument type="service" id="translator.formatter"/>
-            <argument>%kernel.default_locale%</argument>
-            <argument type="collection"/> <!-- translation loaders ids -->
-            <argument type="collection">
-                <argument key="cache_dir">%kernel.cache_dir%/translations</argument>
-                <argument key="debug">%kernel.debug%</argument>
-            </argument>
-            <call method="setConfigCacheFactory">
-                <argument type="service" id="config_cache_factory"/>
-            </call>
-            <tag name="kernel.locale_aware"/>
-        </service>
-
 
         <service id="FabianFroehlich\Validator\Violation\DataConstraintViolationBuilder">
             <argument type="service" id="service_container"/>
-            <argument type="service" id="translator.default"/>
+            <argument type="service" id="translator"/>
         </service>
 
         <service id="FabianFroehlich\Validator\Violation\MetadataConstraintViolationBuilder">
             <argument type="service" id="service_container"/>
             <argument type="service" id="annotations.reader"/>
-            <argument type="service" id="translator.default"/>
+            <argument type="service" id="translator"/>
         </service>
 
 
