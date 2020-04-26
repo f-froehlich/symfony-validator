@@ -31,6 +31,10 @@ use FabianFroehlich\Core\Util\Test\FastIntegrationTestCase;
 use FabianFroehlich\Validator\DependencyInjection\ValidatorExtension;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+
 
 /**
  * Class BundleTestCase
@@ -44,6 +48,9 @@ abstract class BundleTestCase
     protected function loadExtensions(ContainerInterface $container): void {
         (new FrameworkExtension())->load([], $container);
         (new ValidatorExtension())->load([], $container);
+
+        $loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__) . '/Tests'));
+        $loader->load('testconfig.xml');
 
     }
 
